@@ -402,6 +402,7 @@ img {
     margin-bottom: 1.5rem;
     background: linear-gradient(to left, var(--primary), var(--primary-light));
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
@@ -501,12 +502,19 @@ img {
 
 .mockup-mobile {
     width: 200px;
-    height: 400px;
+    height: auto;
     right: 5%;
     bottom: 5%;
     z-index: 2;
-    border: 8px solid #0f172a;
-    border-radius: 2rem;
+    background: transparent;
+    box-shadow: none;
+    border: none;
+}
+
+.mockup-mobile img {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
 }
 
 .pulse-animation {
@@ -805,7 +813,7 @@ img {
 
 .phones-container {
     position: relative;
-    height: 500px;
+    height: 600px;
     display: flex;
     justify-content: center;
 }
@@ -813,9 +821,7 @@ img {
 .phone-img {
     position: absolute;
     width: 250px;
-    border-radius: 2rem;
-    border: 8px solid var(--text-main);
-    box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5);
+    height: auto;
     transition: var(--transition);
 }
 
