@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 2. Sticky Navbar & Active Link Update on Scroll
     const navbar = document.getElementById('navbar');
-    const sections = document.querySelectorAll('section');
+    const sections = document.querySelectorAll('section, footer');
     const navLinks = document.querySelectorAll('.nav-link');
 
     window.addEventListener('scroll', () => {

@@ -3,6 +3,7 @@
    ========================================================================== */
 
 :root {
+    color-scheme: light;
     /* Brand Colors extracted from logo */
     --primary: #004e4b; /* Deep logo teal */
     --primary-light: #007a75;
@@ -50,6 +51,7 @@
 
 html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
 }
 
 body {
@@ -59,6 +61,7 @@ body {
     color: var(--text-muted);
     background-color: var(--bg-body);
     overflow-x: hidden;
+    width: 100%;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -265,6 +268,125 @@ img {
     font-size: 1.5rem;
     color: var(--text-main);
     cursor: pointer;
+}
+
+/* ==========================================================================
+   Language Selectors
+   ========================================================================== */
+.lang-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.lang-dropbtn {
+    background: none;
+    border: none;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-main);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem;
+    font-family: inherit;
+    transition: var(--transition);
+}
+
+.lang-dropbtn:hover {
+    color: var(--primary);
+}
+
+.lang-dropdown:hover .lang-dropdown-content {
+    display: block;
+}
+
+.lang-dropdown::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 10px;
+}
+
+.lang-dropdown-content {
+    display: none;
+    position: absolute;
+    top: calc(100% + 5px);
+    right: 0;
+    background-color: var(--white);
+    min-width: 120px;
+    box-shadow: var(--shadow-md);
+    border-radius: var(--radius-md);
+    z-index: 1001;
+    overflow: hidden;
+    border: 1px solid rgba(0,0,0,0.05);
+}
+
+.lang-dropdown-content a {
+    color: var(--text-main);
+    padding: 0.75rem 1rem;
+    text-decoration: none;
+    display: block;
+    font-size: 0.95rem;
+    transition: var(--transition);
+}
+
+.lang-dropdown-content a:hover {
+    background-color: var(--bg-light);
+    color: var(--primary);
+}
+
+.lang-dropdown-content a.active {
+    font-weight: 700;
+    color: var(--primary);
+    background-color: rgba(0, 78, 75, 0.05);
+}
+
+[dir="ltr"] .lang-dropdown-content {
+    right: auto;
+    left: 0;
+}
+
+/* Mobile Language Selector */
+.mobile-lang-selector {
+    margin: 0 auto 1.5rem auto;
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.lang-label {
+    font-size: 0.875rem;
+    color: var(--text-muted);
+    margin-bottom: 0.75rem;
+}
+
+.lang-buttons {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.lang-btn {
+    padding: 0.5rem 1.25rem;
+    border: 1px solid rgba(0,0,0,0.1);
+    border-radius: var(--radius-md);
+    font-size: 0.95rem;
+    color: var(--text-main);
+    background: var(--white);
+    transition: var(--transition);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.lang-btn.active {
+    background-color: var(--primary-dark);
+    color: var(--white);
+    border-color: var(--primary-dark);
+    font-weight: 700;
 }
 
 /* Mobile Menu */
@@ -563,8 +685,15 @@ img {
 }
 
 .trust-logo {
-    font-size: 2.5rem;
-    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.trust-logo img {
+    max-height: 80px;
+    width: auto;
+    object-fit: contain;
 }
 
 
@@ -703,12 +832,13 @@ img {
     background-size: cover;
     background-position: center;
     box-shadow: var(--shadow-md);
+    cursor: pointer;
 }
 
 .aud-overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(to top, rgba(0,78,75,0.9), rgba(0,78,75,0.4));
+    background: linear-gradient(to top, rgba(0,78,75,0.85) 0%, rgba(0,78,75,0.2) 100%);
     z-index: 1;
     transition: var(--transition);
 }
@@ -716,25 +846,34 @@ img {
 .aud-card i, .aud-card span {
     position: relative;
     z-index: 2;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
 }
 
 .aud-icon {
-    font-size: 2.5rem;
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+    transition: var(--transition);
 }
 
 .aud-card:hover {
-    transform: scale(1.03);
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-hover);
 }
 
 .aud-card:hover .aud-overlay {
-    background: linear-gradient(to top, rgba(0,78,75,0.95), rgba(0,78,75,0.7));
+    background: linear-gradient(to top, rgba(0,78,75,0.95) 0%, rgba(0,78,75,0.4) 100%);
+}
+
+.aud-card:hover .aud-icon {
+    transform: scale(1.1);
+    color: var(--accent);
 }
 
 /* Placeholders for audience background images */
-.aud-1 { background-image: url('https://placehold.co/400x400/?text=Restaurant'); }
-.aud-2 { background-image: url('https://placehold.co/400x400/?text=Hotel'); }
-.aud-3 { background-image: url('https://placehold.co/400x400/?text=Cafe'); }
-.aud-4 { background-image: url('https://placehold.co/400x400/?text=Supermarket'); }
+.aud-1 { background-image: url('assets/resturent.jpg'); }
+.aud-2 { background-image: url('assets/hotel.jpg'); }
+.aud-3 { background-image: url('assets/cafe.jpg'); }
+.aud-4 { background-image: url('assets/supermarket.jpg'); }
 
 /* ==========================================================================
    Platform & App Section
@@ -1000,9 +1139,17 @@ img {
         text-align: center;
     }
     
+    .audience-list {
+        display: inline-flex;
+        flex-direction: column;
+        align-items: flex-start;
+        margin: 0 auto;
+        text-align: right;
+    }
+    
     .audience-list li {
-        justify-content: center;
-        text-align: right; /* keep rtl content right-aligned visually inside centered flex */
+        justify-content: flex-start;
+        text-align: right;
     }
     
     .platform-container {
@@ -1019,7 +1166,7 @@ img {
 }
 
 @media (max-width: 768px) {
-    .nav-links, .nav-actions .btn {
+    .nav-links, .nav-actions .btn, .lang-dropdown {
         display: none;
     }
     
@@ -1058,4 +1205,37 @@ img {
 .fade-up.visible {
     opacity: 1;
     transform: translateY(0);
+}
+
+/* ==========================================================================
+   LTR (English) Specific Styles
+   ========================================================================== */
+[dir="ltr"] .nav-link::after {
+    right: auto;
+    left: 0;
+}
+
+[dir="ltr"] .close-menu {
+    left: auto;
+    right: 2rem;
+}
+
+[dir="ltr"] .mockup-web {
+    left: auto;
+    right: -10%;
+}
+
+[dir="ltr"] .mockup-mobile {
+    right: auto;
+    left: 5%;
+}
+
+[dir="ltr"] .btn-text {
+    text-align: left;
+}
+
+@media (max-width: 1024px) {
+    [dir="ltr"] .audience-list li {
+        text-align: left;
+    }
 }
