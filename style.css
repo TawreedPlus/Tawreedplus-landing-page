@@ -1,6 +1,55 @@
 /* ==========================================================================
-   Tawreed Plus Landing Page Styles
+   Custom Fonts
    ========================================================================== */
+@font-face {
+    font-family: 'Dubai';
+    src: url('assets/fonts/Dubai/DUBAI-LIGHT.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Dubai';
+    src: url('assets/fonts/Dubai/DUBAI-REGULAR.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Dubai';
+    src: url('assets/fonts/Dubai/DUBAI-MEDIUM.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Dubai';
+    src: url('assets/fonts/Dubai/DUBAI-BOLD.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Expo Arabic';
+    src: url('assets/fonts/Expo_Arabic/EXPO_ARABIC_LIGHT.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Expo Arabic';
+    src: url('assets/fonts/Expo_Arabic/EXPO_ARABIC_BOOK.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Expo Arabic';
+    src: url('assets/fonts/Expo_Arabic/EXPO_ARABIC_MEDIUM.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Expo Arabic';
+    src: url('assets/fonts/Expo_Arabic/EXPO_ARABIC_BOLD.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+}
 
 :root {
     color-scheme: light;
@@ -22,9 +71,9 @@
     --bg-light: #f8fafc; /* Slate 50 */
     --bg-card: #ffffff;
     
-    /* Layout & Utilities */
-    --font-heading: 'Cairo', sans-serif;
-    --font-body: 'Cairo', sans-serif;
+    /* Layout & Utilities - Default to Arabic Font */
+    --font-heading: 'Expo Arabic', sans-serif;
+    --font-body: 'Expo Arabic', sans-serif;
     
     --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
     --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
@@ -38,6 +87,17 @@
     
     --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     --section-padding: 5rem 0;
+}
+
+/* Language Specific Font Overrides */
+[lang="en"] {
+    --font-heading: 'Dubai', sans-serif;
+    --font-body: 'Dubai', sans-serif;
+}
+
+[lang="ur"] {
+    --font-heading: 'Expo Arabic', sans-serif;
+    --font-body: 'Expo Arabic', sans-serif;
 }
 
 /* ==========================================================================
@@ -1237,5 +1297,10 @@ img {
 @media (max-width: 1024px) {
     [dir="ltr"] .audience-list li {
         text-align: left;
+    }
+    
+    [dir="ltr"] .mockup-web {
+        right: 0;
+        left: 0;
     }
 }
