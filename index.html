@@ -99,23 +99,27 @@
 
     <!-- Firebase -->
     <script type="module">
-    // Import the functions you need from the SDKs you need
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-app.js";
-    // TODO: Add SDKs for Firebase products that you want to use
-    // https://firebase.google.com/docs/web/setup#available-libraries
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-analytics.js";
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
 
-    // Your web app's Firebase configuration
-    const firebaseConfig = {
-        apiKey: "AIzaSyBjGnj7nNo8OvKjcHM1EDNe303dLCH0rT8",
-        authDomain: "tawreedplus-3e3f7.firebaseapp.com",
-        projectId: "tawreedplus-3e3f7",
-        storageBucket: "tawreedplus-3e3f7.firebasestorage.app",
-        messagingSenderId: "280428467284",
-        appId: "1:280428467284:web:4104a346beec457d7e89c1"
-    };
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        const firebaseConfig = {
+            apiKey: "AIzaSyBjGnj7nNo8OvKjcHM1EDNe303dLCH0rT8",
+            authDomain: "tawreedplus-3e3f7.firebaseapp.com",
+            projectId: "tawreedplus-3e3f7",
+            storageBucket: "tawreedplus-3e3f7.firebasestorage.app",
+            messagingSenderId: "280428467284",
+            appId: "1:280428467284:web:4104a346beec457d7e89c1",
+            measurementId: "G-SR2YXNJBDQ"
+        };
 
-    // Initialize Firebase
-    const app = initializeApp(firebaseConfig);
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
     </script>
 
     <!-- Icons -->
